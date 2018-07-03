@@ -1,0 +1,34 @@
+<div class="container">
+    
+    <fieldset class="container">
+        <legend>Account Details</legend>
+        <div class="container py-2">
+            <div class="row">
+                <label for="username">Username: </label>
+                <span class="px-2" id="username">{{account.username}}</span>
+            </div>
+            <div class="row">
+                <label for="username">Full Name: </label>
+                <span class="px-2" id="username">{{account.fullName}}</span>
+            </div>
+
+            <div class="row">
+                <form (submit)="updateTrelloToken($event)">
+                    <button type="submit" id="btnLogin" class="btn btn-primary">Update Trello Token</button>
+                </form>
+            </div>
+        </div>
+        
+        <div class="container py-2">
+            <div class="row">
+                <form (submit)="storeOpenProjectToken($event)">
+                    <div class="form-group">
+                        <label for="openproject.apikey">OpenProject Token</label> 
+                        <input class="form-control" required type="password" id="openproject.apikey" (ngModel)="account.openProjectToken" name="token"/>
+                    </div>
+                    <button type="submit" id="btnLogin" class="btn btn-primary">Update OpenProject Token</button>
+                </form>
+            </div>
+        </div>
+    </fieldset>
+</div>

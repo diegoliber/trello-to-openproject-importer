@@ -1,0 +1,25 @@
+---
+version: '3.0'
+services:
+  integrationdb:
+    image: library/mariadb:10.3.7
+    ports:
+      - 3506:3306
+    expose:
+      - '3306'
+    environment:
+      MYSQL_DATABASE: 'integrationdb'
+      MYSQL_USER: 'integration'
+      MYSQL_PASSWORD: 'integration'
+      MYSQL_ROOT_PASSWORD: 'secret'
+    networks:
+      - integration-net
+    volumes:
+      - integration_db_data:/var/lib/mysql
+
+networks:
+  integration-net:
+
+volumes:
+  integration_db_data:
+  app_log_data:
